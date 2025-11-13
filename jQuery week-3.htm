@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nepal jQuery Animation Effects</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: linear-gradient(to right, #e0f7fa, #f1f8e9);
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  h2 {
+    margin-top: 20px;
+    color: #333;
+  }
+
+  #nepalBox {
+    width: 500px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #008080;
+    color: white;
+    border-radius: 10px;
+    position: relative;   /* Needed for movement */
+    top: 0;
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  }
+
+  p {
+    margin: 10px 0;
+  }
+
+  button {
+    margin: 15px;
+    padding: 10px 25px;
+    border: none;
+    background-color: #333;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+  }
+
+  button:hover {
+    background-color: #555;
+  }
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<h2>🇳🇵 Nepal Information – jQuery Animation Demo</h2>
+
+<!-- One Button -->
+<button id="btnEffects">Run All Amazing Effects</button>
+
+<!-- One Div -->
+<div id="nepalBox">
+  <p>Nepal is a beautiful landlocked country in South Asia, rich in nature and tradition.</p>
+  <p>It is home to Mount Everest, the world's highest peak, and a paradise for adventure seekers.</p>
+  <p>Kathmandu Valley showcases centuries-old temples, art, and vibrant festivals.</p>
+  <p>The Nepalese people are known for their kindness and the motto "Atithi Devo Bhava" — guests are gods.</p>
+  <p>From lush Terai plains to towering Himalayas, Nepal’s landscapes are breathtakingly diverse.</p>
+</div>
+
+<script>
+$(document).ready(function() {
+
+  $("#btnEffects").click(function() {
+
+    // Stop any ongoing animation before starting new sequence
+    $("#nepalBox").stop(true, true);
+
+    // Sequence of effects and position animations
+    $("#nepalBox")
+      .slideUp(800)
+      .slideDown(800, function() {
+        $(this)
+          .fadeOut(700)
+          .fadeIn(700, function() {
+            // Move animation (up, right, down, left)
+            $(this)
+              .animate({ top: "-50px" }, 10000)   // Move up
+              .animate({ left: "100px" }, 10000)  // Move right
+              .animate({ top: "50px" }, 10000)    // Move down
+              .animate({ left: "0px" }, 5000)    // Move back to center
+              .animate({ width: '550px', opacity: 0.7 }, 5000) // Grow
+              .animate({ width: '500px', opacity: 1.0 }, 5000) // Shrink back
+              .css("background-color", getRandomColor())      // Change color
+              .slideToggle(600)
+              .slideToggle(600, function() {
+                alert("✨ All animations completed! Nepal box looks amazing!");
+              });
+          });
+      });
+  });
+
+  // Random color generator
+  function getRandomColor() {
+    const letters = "0123456789ABCDEF";
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+});
+</script>
+
+</body>
+</html>
