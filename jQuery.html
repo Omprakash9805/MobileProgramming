@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>jQuery Effects in One Div - Nepal Info</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+  }
+  #nepalBox {
+    width: 500px;
+    height: auto;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #008080;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  }
+  p {
+    margin: 10px 0;
+  }
+  button {
+    margin: 8px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #555;
+  }
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<h2>jQuery Effects Demonstration on One Div</h2>
+
+<!-- Buttons -->
+<button id="btnHideShow">Hide/Show</button>
+<button id="btnFade">Fade</button>
+<button id="btnSlide">Slide</button>
+<button id="btnAnimate">Animate</button>
+<button id="btnStop">Stop & Chain</button>
+
+<!-- One Div with All Nepal Paragraphs -->
+<div id="nepalBox">
+  <p>Nepal is a beautiful landlocked country in South Asia, rich in natural beauty and culture.</p>
+  <p>It is home to the world’s highest peak, Mount Everest, attracting travelers and climbers globally.</p>
+  <p>Kathmandu, the capital city, is filled with ancient temples, stupas, and vibrant festivals.</p>
+  <p>The people of Nepal are known for their hospitality and the saying "Atithi Devo Bhava" — guests are like gods.</p>
+  <p>From the Terai plains to the Himalayas, Nepal’s geography is incredibly diverse and breathtaking.</p>
+</div>
+
+<script>
+$(document).ready(function() {
+
+  // 1️⃣ Hide and Show with random color change
+  $("#btnHideShow").click(function() {
+    $("#nepalBox").toggle(1000, function() {
+      $(this).css("background-color", getRandomColor());
+    });
+  });
+
+  // 2️⃣ Fade Effect with Callback
+  $("#btnFade").click(function() {
+    $("#nepalBox").fadeToggle(1000, function() {
+      alert("Fade complete!");
+      $(this).css("background-color", getRandomColor());
+    });
+  });
+
+  // 3️⃣ Slide Effect
+  $("#btnSlide").click(function() {
+    $("#nepalBox").slideToggle(1000).css("background-color", getRandomColor());
+  });
+
+  // 4️⃣ Animate and Chain Multiple Effects
+  $("#btnAnimate").click(function() {
+    $("#nepalBox")
+      .animate({width: '550px', opacity: 0.7}, 1000)
+      .animate({width: '500px', opacity: 1.0}, 1000)
+      .css("background-color", getRandomColor());
+  });
+
+  // 5️⃣ Stop + Chaining Example
+  $("#btnStop").click(function() {
+    $("#nepalBox").stop(true, true)
+      .slideUp(800)
+      .slideDown(800)
+      .fadeTo(800, 0.8)
+      .fadeTo(800, 1)
+      .css("background-color", getRandomColor());
+  });
+
+  // 🎨 Helper Function to Generate Random Color
+  function getRandomColor() {
+    const letters = "0123456789ABCDEF";
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+});
+</script>
+
+</body>
+</html>
