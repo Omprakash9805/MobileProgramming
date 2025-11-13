@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Are you MI or RCB?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+      margin: 0;
+      padding-top: 80px;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .input-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+
+    input {
+      width: 200px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #000;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #444;
+    }
+
+    #message {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    #teamLogo {
+      margin-top: 20px;
+      width: 200px;
+      display: none;
+      transition: transform 0.3s ease;
+    }
+
+    #teamLogo.show {
+      display: block;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <h2>Are you a Mumbai Indians or RCB fan?</h2>
+
+  <div class="input-container">
+    <input type="text" id="teamInput" placeholder="Enter team name">
+    <button onclick="checkTeam()">Check Team</button>
+  </div>
+
+  <div id="message"></div>
+  <img id="teamLogo" src="" alt="Team Logo">
+
+  <script>
+    function checkTeam() {
+      const input = document.getElementById("teamInput").value.trim().toLowerCase();
+      const message = document.getElementById("message");
+      const logo = document.getElementById("teamLogo");
+
+      if (input === "mumbai" || input === "mumbai indians") {
+        message.textContent = "You are a Mumbai Indians fan! 💙💥";
+        logo.src = "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg";
+        logo.classList.add("show");
+      } 
+      else if (input === "rcb" || input === "royal challengers bangalore" || input === "royal challengers bengaluru") {
+        message.textContent = "You are a Royal Challengers Bengaluru fan! ❤️💪";
+        logo.src = "https://upload.wikimedia.org/wikipedia/en/d/d4/Royal_Challengers_Bengaluru_Logo.svg";
+        logo.classList.add("show");
+      } 
+      else {
+        message.textContent = "Please enter 'Mumbai' or 'RCB'.";
+        logo.classList.remove("show");
+        logo.style.display = "none";
+        return;
+      }
+
+      logo.style.display = "block";
+    }
+  </script>
+</body>
+</html>
