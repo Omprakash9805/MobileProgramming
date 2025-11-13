@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Five Different Click Methods with Show/Hide Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .box {
+      padding: 15px;
+      margin: 10px;
+      border: 2px solid #333;
+      border-radius: 8px;
+      width: 280px;
+      text-align: center;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+    }
+    button {
+      margin-top: 10px;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+    .output {
+      margin-top: 8px;
+      font-weight: bold;
+      color: #333;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+    .show {
+      opacity: 1;
+    }
+    #resetAll {
+      margin: 20px;
+      padding: 10px 16px;
+      font-size: 16px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #resetAll:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Inline onclick method (Show/Hide Capital of Nepal) -->
+  <div class="box" id="div1">
+    <p>Method 1: Inline onclick (Show/Hide Capital)</p>
+    <button onclick="toggleCapital()">Show</button>
+    <div class="output" id="output1"></div>
+  </div>
+
+  <!-- 2. Using DOM property -->
+  <div class="box" id="div2">
+    <p>Method 2: DOM Property (onclick)</p>
+    <button id="btn2">Click Me 2</button>
+    <div class="output" id="output2"></div>
+  </div>
+
+  <!-- 3. Using addEventListener -->
+  <div class="box" id="div3">
+    <p>Method 3: addEventListener</p>
+    <button id="btn3">Click Me 3</button>
+    <div class="output" id="output3"></div>
+  </div>
+
+  <!-- 4. Event delegation -->
+  <div class="box" id="div4">
+    <p>Method 4: Event Delegation</p>
+    <button id="btn4">Click Me 4</button>
+    <div class="output" id="output4"></div>
+  </div>
+
+  <!-- 5. Anonymous arrow function -->
+  <div class="box" id="div5">
+    <p>Method 5: Arrow Function</p>
+    <button id="btn5">Click Me 5</button>
+    <div class="output" id="output5"></div>
+  </div>
+
+  <!-- Reset Button -->
+  <div style="text-align:center;">
+    <button id="resetAll">Reset All</button>
+  </div>
+
+  <script>
+    // Helper function to show output temporarily
+    function showOutput(id, message) {
+      const output = document.getElementById(id);
+      output.textContent = message;
+      output.classList.add("show");
+      setTimeout(() => {
+        output.classList.remove("show");
+      }, 3000);
+    }
+
+    // 1. Inline onclick method — Show/Hide Capital of Nepal
+    let isCapitalVisible = false;
+    function toggleCapital() {
+      const div = document.getElementById("div1");
+      const output = document.getElementById("output1");
+
+      div.style.backgroundColor = "lightgreen";
+      
+      if (!isCapitalVisible) {
+        output.textContent = "Capital of Nepal is Kathmandu";
+        output.classList.add("show");
+        isCapitalVisible = true;
+      } else {
+        output.textContent = "";
+        output.classList.remove("show");
+        isCapitalVisible = false;
+      }
+    }
+
+    // 2. Using DOM property
+    document.getElementById("btn2").onclick = function() {
+      const div = document.getElementById("div2");
+      div.style.backgroundColor = "lightblue";
+      showOutput("output2", "Button 2 clicked using DOM property!");
+    };
+
+    // 3. Using addEventListener
+    document.getElementById("btn3").addEventListener("click", function() {
+      const div = document.getElementById("div3");
+      div.style.backgroundColor = "lightcoral";
+      showOutput("output3", "Button 3 clicked using addEventListener!");
+    });
+
+    // 4. Event delegation
+    document.getElementById("div4").addEventListener("click", function(event) {
+      if (event.target.id === "btn4") {
+        const div = document.getElementById("div4");
+        div.style.backgroundColor = "lightyellow";
+        showOutput("output4", "Button 4 clicked using event delegation!");
+      }
+    });
+
+    // 5. Arrow function
+    document.getElementById("btn5").addEventListener("click", () => {
+      const div = document.getElementById("div5");
+      div.style.backgroundColor = "lightpink";
+      showOutput("output5", "Button 5 clicked using arrow function!");
+    });
+
+    // Reset All Button
+    document.getElementById("resetAll").addEventListener("click", () => {
+      const divs = document.querySelectorAll(".box");
+      const outputs = document.querySelectorAll(".output");
+
+      divs.forEach(div => div.style.backgroundColor = "white");
+      outputs.forEach(out => {
+        out.textContent = "";
+        out.classList.remove("show");
+      });
+
+      // Reset the capital visibility state
+      isCapitalVisible = false;
+    });
+  </script>
+
+</body>
+</html>
