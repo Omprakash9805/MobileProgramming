@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Booking App Menu</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; }
+    header { background: #007bff; color: white; padding: 15px 20px; text-align: center; }
+    header h1 { margin: 0; }
+    .menu-button { padding: 10px 15px; margin: 20px auto; display: block; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    .menu-items { display: none; flex-direction: column; gap: 10px; margin: 10px auto; width: 200px; }
+    .menu-items a { text-decoration: none; padding: 8px 12px; background: #0056b3; color: white; border-radius: 5px; text-align: center; display: block; }
+    .menu-items a:hover { background: #004494; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Travel Booking App</h1>
+</header>
+
+<button class="menu-button" onclick="toggleMenu()">Menu</button>
+<div class="menu-items" id="menuItems">
+  <a href="#">Home</a>
+  <a href="#">Bus Tickets</a>
+  <a href="#">Flights</a>
+  <a href="#">Hotels</a>
+  <a href="#">Hostels</a>
+</div>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('menuItems');
+    menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+  }
+</script>
+
+</body>
+</html>
