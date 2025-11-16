@@ -1,0 +1,146 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #e7f3ff;
+    font-family: "Poppins", Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.app {
+    width: 390px;
+    background: white;
+    min-height: 100vh;
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+h1 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: #0e2c4f;
+    margin-bottom: 20px;
+}
+
+/* Search box */
+.search {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    background: #f1f1f1;
+    border: 1px solid #dcdcdc;
+    margin-bottom: 25px;
+    font-size: 15px;
+}
+
+/* Feature grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.card {
+    padding: 25px 10px;
+    border-radius: 20px;
+    font-size: 17px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Icons */
+.icon {
+    display: block;
+    font-size: 35px;
+    margin-bottom: 8px;
+}
+
+/* Card Colors */
+.flights { background: #ffd770; }
+.hotels { background: #bfe0ff; }
+.cars   { background: #b9f5c0; }
+.tours  { background: #ffc8a8; }
+.bus    { background: #fff7a3; }
+.hostel { background: #ffd4ea; }
+
+/* Sections */
+.section {
+    background: #f9fbff;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    display: none;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.section h2 {
+    font-size: 20px;
+    color: #2e5cff;
+}
+
+/* Toggle button */
+.toggle-btn {
+    width: 100%;
+    padding: 12px;
+    background: #2e5cff;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Seats / Room Items */
+.items {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.item {
+    width: 55px;
+    height: 55px;
+    background: #e0e0e0;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.item:hover {
+    transform: scale(1.1);
+}
+
+.selected {
+    background: #2e5cff !important;
+    color: white !important;
+}
+
+/* Book button */
+.book-btn {
+    width: 100%;
+    padding: 16px;
+    background: #2e6cff;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 30px;
+}
