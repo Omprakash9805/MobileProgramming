@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stylish Contact Form</title>
+
+  <style>
+    body {
+      font-family: Poppins, sans-serif;
+      background: linear-gradient(135deg, #4e54c8, #8f94fb);
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #fff;
+    }
+
+    h2 {
+      margin-top: 30px;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+
+    form {
+      margin-top: 20px;
+      width: 350px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+      font-size: 15px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #00c6ff;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #0072ff;
+      transform: scale(1.03);
+    }
+
+    #messages {
+      width: 90%;
+      max-width: 600px;
+      margin-top: 20px;
+    }
+
+    .msgBox {
+      background: rgba(255,255,255,0.2);
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 12px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      color: #fff;
+    }
+
+    .msgBox p {
+      margin: 5px 0;
+    }
+
+    .msgBtn {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-right: 10px;
+      transition: 0.2s;
+      font-weight: bold;
+    }
+
+    .edit {
+      background: #ffcc00;
+    }
+
+    .edit:hover {
+      background: #e0b200;
+    }
+
+    .delete {
+      background: #ff4b5c;
+      color: white;
+    }
+
+    .delete:hover {
+      background: #d93645;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h2>Contact Us</h2>
+
+  <form id="contactForm">
+    <input type="text" id="name" placeholder="Enter Name" required>
+    <input type="email" id="email" placeholder="Enter Email" required>
+    <textarea id="message" placeholder="Write Message..." rows="4" required></textarea>
+    <button type="submit">Submit Message</button>
+  </form>
+
+  <h2>Messages</h2>
+  <div id="messages"></div>
+
+  <script src="./script.js" type="module"></script>
+</body>
+</html>
