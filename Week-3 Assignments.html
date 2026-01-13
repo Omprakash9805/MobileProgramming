@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Travel Booking App</title>
+<link rel="stylesheet" href="Assignment.css">
+</head>
+<body>
+
+<div class="app">
+
+    <h1>All-in-One Travel Booking </h1>
+    <input type="text" class="search" placeholder="🔍 Search">
+
+    <div class="grid">
+        <div class="card flights"><span class="icon">✈️</span>Flights</div>
+        <div class="card hotels"><span class="icon">🏨</span>Hotels</div>
+        <div class="card cars"><span class="icon">🚗</span>Car Rentals</div>
+        <div class="card tours"><span class="icon">🗺️</span>Tours</div>
+        <div class="card bus"><span class="icon">🚌</span>Bus Tickets</div>
+        <div class="card hostel"><span class="icon">🏘️</span>Hostels</div>
+    </div>
+    <div class="section" id="busSection">
+        <h2>Bus Ticket Seat Selection</h2>
+        <button class="toggle-btn" onclick="toggleSeats('busSeats')">Seats</button>
+        <div class="items" id="busSeats">
+            <div class="item">1</div><div class="item">2</div>
+            <div class="item">3</div><div class="item">4</div>
+            <div class="item">5</div><div class="item">6</div>
+        </div>
+    </div>
+    <div class="section" id="flightsSection">
+        <h2>Flight Seat Selection</h2>
+        <div class="items">
+            <div class="item">A1</div><div class="item">A2</div>
+            <div class="item">B1</div><div class="item">B2</div>
+            <div class="item">C1</div><div class="item">C2</div>
+        </div>
+    </div>
+
+    <div class="section" id="hotelsSection">
+        <h2>Hotel Room Selection</h2>
+        <div class="items">
+            <div class="item">101</div><div class="item">102</div>
+            <div class="item">103</div><div class="item">104</div>
+        </div>
+    </div>
+
+    <div class="section" id="hostelSection">
+        <h2>Hostel Room Selection</h2>
+        <div class="items">
+            <div class="item">A</div><div class="item">B</div>
+            <div class="item">C</div><div class="item">D</div>
+        </div>
+    </div>
+
+    <button class="book-btn">Book Now</button>
+
+</div>
+
+<script src="Assignment.js"></script>
+
+</body>
+</html>
